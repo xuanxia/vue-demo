@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>defineproperty</title>
+</head>
+<body>
+<div>
+    <p>你好，<span id='nickName'></span></p>
+    <div id="introduce"></div>
+</div>　　
+</body>
+<script>
+    /*
+    *把一个普通对象传给 Vue 实例作为它的 data 选项，
+    * Vue.js 将遍历它的属性，用 Object.defineProperty 将它们转为 getter/setter
+    *
+    *
+    * 用户看不到 getter/setters，但是在内部它们让 Vue.js 追踪依赖，在属性被访问和修改时通知变化。
+    * 一个问题是在浏览器控制台打印数据对象时 getter/setter 的格式化不同，
+    * 使用 vm.$log() 实例方法可以得到更友好的输出
+    *
+    * */
+    var userInfo = {};
+    Object.defineProperty(userInfo,"nickName",{
+        get:function(){
+            return document.getElementById('nickName').innerHTML;
+        },
+        set:function(nick){
+            document.getElementById('nickName').innerHTML = nick;
+        }
+    });
+    Object.defineProperty(userInfo, "introduce", {
+        get: function(){
+            return document.getElementById('introduce').innerHTML;
+        },
+        set: function(introduce){
+            document.getElementById('introduce').innerHTML = introduce;
+        }
+    });
+
+    /*
+    *
+    * 在控制台输入 userInfo.nickName = "kangxiaojian" userInfo.introduce = "hello world" 看效果
+    *
+    * */
+
+</script>
+</html>

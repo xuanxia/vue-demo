@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    a={{a}} b={{b}}
+</div>
+
+<script>
+    var vm =  new Vue({
+        el:"#app",
+        data:{
+            a:1
+        },
+        computed:{
+
+            b: {
+              get:function(){
+                  return this.a + 1;
+              },
+              set:function(newValue){
+                  this.a = newValue - 1;
+              }
+           }
+        }
+    });
+</script>
+</body>
+</html>

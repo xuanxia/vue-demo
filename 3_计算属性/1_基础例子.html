@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+   a={{a}} b={{b}}
+</div>
+
+<script>
+   var vm =  new Vue({
+        el:"#app",
+        data:{
+            a:1
+        },
+        computed:{
+            // 一个计算属性的 getter
+            b: function () {
+                // `this` 指向 vm 实例
+                return this.a + 10
+            }
+        }
+    });
+</script>
+</body>
+</html>
