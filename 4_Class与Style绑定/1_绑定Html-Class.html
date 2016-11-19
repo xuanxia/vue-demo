@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" type="text/css" href="app.css">
+    <script src="../vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<div id="app" v-bind:class="{active:isActive,'text-danger':hasError}">
+    {{message}}
+</div>
+
+<div id="obj" v-bind:class="classObject">
+    {{message}}
+</div>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            isActive:true,
+            hasError:true,
+            message:'hello Vue.js!'
+        },
+    });
+
+    new  Vue({
+        el:"#obj",
+        data:{
+            message:"类似计算属性的css返回",
+            active:true,
+        },
+        computed:{
+            classObject:function () {
+                return {
+                    active:this.active
+                }
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" type="text/css" href="app.css">
+    <script src="../vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<div id="app" class="arrayClass" v-bind:class="{active:isActive}">
+    {{message}}
+</div>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            isActive:true,
+            message:'hello Vue.js!'
+        },
+    });
+</script>
+</body>
+</html>
